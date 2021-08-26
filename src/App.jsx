@@ -36,18 +36,14 @@ export default function App() {
       return;
     }
 
-    const contact = {
-      id: uuidv4(),
-      name: name,
-      number: number,
-    };
+    const id = uuidv4();
 
     setContacts(contacts => {
-      const temp = [...contacts, contact];
-      setName('');
-      setNumber('');
-      return temp;
+      return [...contacts, { id, name, number }];
     });
+
+    setName('');
+    setNumber('');
   };
 
   const handleDeleteContacts = evt => {
